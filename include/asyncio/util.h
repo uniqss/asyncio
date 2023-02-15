@@ -204,10 +204,10 @@ public:
 		std::vector<std::string> string_result;
 		SplitStr(string_result, is, c);
 
-		number_result.clear();
+		number_result.resize(string_result.size());
 		for (size_t i = 0; i < string_result.size(); i++) {
 			const std::string& value = string_result[i];
-			number_result.emplace_back(atoi(value.data()));
+			number_result[i] = atoi(value.data());
 		}
 
 		return number_result.size();
@@ -217,10 +217,10 @@ public:
 		std::vector<std::string> vec_string;
 		SplitStr(vec_string, is, c);
 
-		vec.clear();
+		vec.resize(vec_string.size());
 		for (size_t i = 0; i < vec_string.size(); i++) {
 			const std::string& value = vec_string[i];
-			vec.push_back(atoi(value.data()) != 0);
+			vec[i] = (atoi(value.data()) != 0);
 		}
 
 		return vec.size();
